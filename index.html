@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hadi AI Studio - Free AI Tools</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #090d19;
+  color: white;
+}
+
+header {
+  padding: 22px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #252c40;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+  color: #9b8cff;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+.hero {
+  text-align: center;
+  padding: 85px 20px 55px;
+}
+
+.hero h1 {
+  font-size: clamp(35px, 6vw, 58px);
+  margin-bottom: 18px;
+}
+
+.hero h1 span {
+  color: #a18bff;
+}
+
+.hero p {
+  color: #aab2c7;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 22px;
+}
+
+.card {
+  background: #141b2d;
+  border: 1px solid #303b58;
+  border-radius: 18px;
+  padding: 28px;
+  text-align: center;
+}
+
+.card .emoji {
+  font-size: 48px;
+  margin-bottom: 18px;
+}
+
+.card h2 {
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #aab2c7;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+button {
+  background: linear-gradient(90deg, #7057f5, #a05bfa);
+  border: none;
+  padding: 13px 22px;
+  border-radius: 9px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+.generator {
+  margin-top: 35px;
+  background: #141b2d;
+  border: 1px solid #303b58;
+  padding: 30px;
+  border-radius: 18px;
+}
+
+.generator h2 {
+  margin-bottom: 18px;
+}
+
+textarea {
+  width: 100%;
+  height: 120px;
+  background: #090d19;
+  border: 1px solid #38435f;
+  color: white;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 15px;
+  resize: vertical;
+  margin-bottom: 15px;
+}
+
+.status {
+  margin-top: 15px;
+  color: #aab2c7;
+}
+
+footer {
+  text-align: center;
+  padding: 35px 15px;
+  color: #9ba5bd;
+  margin-top: 50px;
+  border-top: 1px solid #252c40;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">✦ Hadi AI Studio</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#tools">AI Tools</a>
+    <a href="#generator">Create</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h1>Create Anything with <span>AI</span></h1>
+  <p>
+    Welcome to Hadi AI Studio.<br>
+    Create amazing AI images and videos.
+    Free AI creativity for everyone!
+  </p>
+</section>
+
+<div class="container" id="tools">
+
+  <div class="tools">
+
+    <div class="card">
+      <div class="emoji">🎨</div>
+      <h2>AI Image Generator</h2>
+      <p>Turn your imagination into beautiful AI images.</p>
+      <button onclick="selectTool('image')">Create Image</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🎬</div>
+      <h2>AI Video Generator</h2>
+      <p>Transform your ideas into creative AI videos.</p>
+      <button onclick="selectTool('video')">Create Video</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">✨</div>
+      <h2>AI Photo Creator</h2>
+      <p>Explore creative photo generation with AI.</p>
+      <button onclick="selectTool('photo')">Create Photo</button>
+    </div>
+
+  </div>
+
+  <div class="generator" id="generator">
+    <h2 id="generatorTitle">Start Creating with AI</h2>
+
+    <textarea id="prompt"
+      placeholder="Describe what you want to create..."></textarea>
+
+    <button onclick="startCreating()">Generate</button>
+
+    <p class="status" id="status">
+      Choose a tool and enter your prompt.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Hadi AI Studio</p>
+  <p>Free AI Creativity for Everyone ❤️</p>
+</footer>
+
+<script>
+let selectedTool = "image";
+
+function selectTool(tool) {
+  selectedTool = tool;
+
+  const titles = {
+    image: "AI Image Generator",
+    video: "AI Video Generator",
+    photo: "AI Photo Creator"
+  };
+
+  document.getElementById("generatorTitle").innerText =
+    titles[tool];
+
+  document.getElementById("generator").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function startCreating() {
+  const prompt = document.getElementById("prompt").value.trim();
+
+  if (!prompt) {
+    document.getElementById("status").innerText =
+      "Please enter your prompt first.";
+    return;
+  }
+
+  document.getElementById("status").innerText =
+    "AI generation is not connected yet. We will connect the free AI engine in the next steps.";
+}
+</script>
+
+</body>
+</html>
